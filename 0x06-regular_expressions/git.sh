@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-git add . && git commit -m "Script that is exactly matching a string that starts with h ends with n and can have any single character in between" && git push
+git add . && git commit -m "A regular expression that is matches 10 digit phone number" && git push
