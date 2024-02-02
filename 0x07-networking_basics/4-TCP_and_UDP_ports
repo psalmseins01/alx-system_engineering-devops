@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Checking for listening ports, PIDs and names
+netstat -lp
