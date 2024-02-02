@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-git add . && git commit -m "Check for open ports and services" && git push
+git add . && git commit -m "The ping utility" && git push
