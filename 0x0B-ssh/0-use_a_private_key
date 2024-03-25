@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This Bash script establishes an SSH connection to a server using the
+# private key located at ~/.ssh/school and the user 'ubuntu'.
+ssh ubuntu@100.25.135.213 -i ~/.ssh/school
