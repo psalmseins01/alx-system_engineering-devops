@@ -11,7 +11,7 @@ if __name__ == "__main__":
     response = requests.get(server_addr)
     Users = response.json()
 
-    users_dict = dict()
+    users_dict = {}
     for user in Users:
         USER_ID = user.get('id')
         USERNAME = user.get('username')
