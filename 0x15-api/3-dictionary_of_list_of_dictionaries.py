@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Script to fetch REST API for employees todo lists"""
 
-import requests
 import json
+import requests
 import sys
 
 
