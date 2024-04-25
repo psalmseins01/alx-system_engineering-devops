@@ -1,25 +1,26 @@
 #!/usr/bin/python3
-"""Script to fetch REST API for employees todo lists"""
+"""Script to use RESTful API for fetching todo lists of employees"""
 
 import json
 import requests
 import sys
 
 
-if __name__ == "__main__":
-    server_addr = "https://jsonplaceholder.typicode.com/users"
-    response = requests.get(server_addr)
-    Users = response.json()
+if __name__ == '__main__':
+    url = "https://jsonplaceholder.typicode.com/users"
+
+    resp = requests.get(url)
+    Users = resp.json()
 
     users_dict = {}
     for user in Users:
         USER_ID = user.get('id')
         USERNAME = user.get('username')
-        server_addr = "https://jsonplaceholder.typicode.com/users/{}".format(USER_ID)
-        url = server_addr + '/todos'
-        response = requests.get(url)
+        url = 'https://jsonplaceholder.typicode.com/users/{}'.format(USER_ID)
+        url = url + '/todos/'
+        resp = requests.get(url)
 
-        tasks = response.json()
+        tasks = resp.json()
         users_dict[USER_ID] = []
         for task in tasks:
             TASK_COMPLETED_STATUS = task.get('completed')
@@ -29,6 +30,6 @@ if __name__ == "__main__":
                 "completed": TASK_COMPLETED_STATUS,
                 "username": USERNAME
             })
-    """Dumping into json"""
-    with open('todo_all_employees.json', 'w') as hd:
-        json.dump(users_dict, hd)
+            """A little Something"""
+    with open('todo_all_employees.json', 'w') as f:
+        json.dump(users_dict, f)
