@@ -12,13 +12,15 @@ def number_of_subscribers(subreddit):
        This function returns the total number of subscribers
        for a subreddit
     '''
-    user = {'User-Agent': 'Lizzie'}
-    endpoint = requests.get('https://www.reddit.com/r/{}/about.json'
-                            .format(subreddit), headers=user).json()
-    try:
-        return endpoint.get('data').get('subscribers')
-    except Exception:
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    headers = {
+        "User-Agent": "Linux: 0x16.api.advanced"
+        }
+    response = request.get(url, headers=headers, allow_redirects=False)
+    if response.status_code != requests.codes.ok:
         return 0
+    results = response.json().get('data')
+    return results.get('subscribers')
 
 
 if __name__ == "__main__":
