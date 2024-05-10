@@ -16,7 +16,7 @@ def number_of_subscribers(subreddit):
     headers = {
         "User-Agent": "Linux: 0x16.api.advanced"
         }
-    response = request.get(url, headers=headers, allow_redirects=False)
+    response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code != requests.codes.ok:
         return 0
     results = response.json().get('data')
